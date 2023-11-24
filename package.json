@@ -1,0 +1,36 @@
+{
+  "name": "restapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"nodemon index.js\" \"node cron.mjs\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emailjs/browser": "^3.11.0",
+    "@sendgrid/mail": "^7.7.0",
+    "body-parser": "^1.20.2",
+    "concurrently": "^8.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "emailjs": "^4.0.2",
+    "emailjs-com": "^3.2.0",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "mailgun.js": "^9.1.0",
+    "mssql": "^9.1.1",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.2",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.9.3",
+    "nodemailer-mailgun-transport": "^2.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.46.0",
+    "nodemon": "^2.0.22"
+  }
+}

@@ -1,0 +1,22 @@
+SELECT [IDCandidatura]
+      ,[CV]
+      ,[NomeFichCV]
+      ,[CartaMotivacao]
+      ,convert(varchar(15), [DataCandidatura], 23) as DataCandidatura
+      ,V.[Titulo]
+	  ,E.[Tipo] as [TipoVaga]
+	  ,L.[Cidade]
+      ,[IDPerfil]
+      ,T.[TipoCandidatura]
+      ,[NomeCandidato]
+      ,[ContactoCandidato]
+      ,[EmailCandidato]
+      ,C.[IDEstado]
+      ,ES.[NomeAbrevi] as [Estado]
+FROM [BD22].[sc22_55].[Candidatura_Vaga] C
+            INNER JOIN [BD22].[sc22_55].[Vaga] V ON V.[IDVaga] = C.[IDVaga]
+            INNER JOIN [BD22].[sc22_55].[TipoCandidatura] T ON T.[IDTipoCandidatura] = C.[TipoCandidatura]
+			INNER JOIN [BD22].[sc22_55].[Localizacao] L ON L.[IDLocalizacao] = V.[Localizacao]
+			INNER JOIN [BD22].[sc22_55].[Experiencia] E ON E.[IDExperiencia] = V.[Experiencia]
+            INNER JOIN [BD22].[sc22_55].[Estado] ES ON ES.[IDEstado] = C. [IDEstado]
+WHERE [IDPerfil]=@IDPerfil
