@@ -1,31 +1,27 @@
 'use strict';
 const utils = require('../utils');
-const config = require('../../config');
-const sql = require('mssql');
+const pool = require('../../db');
 
 const getVagas = async () => {
     try {
-        let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('vagas');
-        const vagasList = await pool.request().query(sqlQueries.vagaslist);
-        return vagasList.recordset;
+        const vagasList = await pool.query(sqlQueries.vagaslist);
+        return vagasList.rows; 
     } catch (error) {
-        console.log(error.message);
+        console.error(error.message);
     }
-}
+};
 
 const getById = async (vagaId) => {
     try {
-        let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('vagas');
-        const vaga = await pool.request()
-            .input('vagaId', sql.Int, vagaId)
-            .query(sqlQueries.vagabyId);
-        return vaga.recordset;
+        const vaga = await pool.query(sqlQueries.vagabyId, [vagaId]);
+        return vaga.rows; 
     } catch (error) {
-        return error.message;
+        console.error(error.message);
+        throw error; 
     }
-}
+};
 
 const createVaga = async (data) => {
     try {

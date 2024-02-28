@@ -43,10 +43,10 @@ const addUtilizadorInterno = async (req, res, next) => {
         const transporter = nodemailer.createTransport(mailgunTransport(auth));
 
         const mailOptions = {
-            from: 'noreply.softinsaapp@gmail.com',
+            from: 'noreply.vision4you@gmail.com',
             to: data.Email,
-            subject: 'A sua palavra-chave temporária - Softinsaapp',
-            text: 'Olá, ' + data.PNome + '! Acaba de se registar na aplicação SoftinsaApp. Esta é a sua palavra-chave temporária de acesso: ' + data.Palavrapasse,
+            subject: 'A sua palavra-chave temporária - Vision4you',
+            text: 'Olá, ' + data.PNome + '! Acaba de se registar na aplicação Vision4you. Esta é a sua palavra-chave temporária de acesso: ' + data.Palavrapasse,
             //html: "<h3>data.Palavrapasse</h3>"
         };
 
@@ -117,10 +117,10 @@ const updateUtilizadorInternoTempPassword = async (req, res, next) => {
         const transporter = nodemailer.createTransport(mailgunTransport(auth));
 
         const mailOptions = {
-            from: 'noreply.softinsaapp@gmail.com',
+            from: 'noreply.vision4you@gmail.com',
             to: data.Email,
-            subject: 'A sua palavra-chave temporária - Softinsaapp',
-            text: 'Olá! Acaba de solicitar a reposição da sua palavra-chave na aplicação SoftinsaApp. Esta é a sua palavra-chave temporária de acesso: ' + data.Palavrapasse,
+            subject: 'A sua palavra-chave temporária - Vision4you',
+            text: 'Olá! Acaba de solicitar a reposição da sua palavra-chave na aplicação Vision4you. Esta é a sua palavra-chave temporária de acesso: ' + data.Palavrapasse,
             //html: "<h3>data.Palavrapasse</h3>"
         };
 

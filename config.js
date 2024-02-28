@@ -5,7 +5,7 @@ const assert = require('assert');
 
 dotenv.config();
 
-const {PORT, HOST, HOST_URL, SQL_USER, SQL_PASSWORD, SQL_DATABASE, SQL_SERVER} = process.env;
+const {PORT, HOST, HOST_URL, PG_USER, PG_HOST, PG_DATABASE, PG_PASSWORD, PG_PORT } = process.env;
 
 const sqlEncrypt = process.env.SQL_ENCRYPT === "true";
 
@@ -16,14 +16,12 @@ module.exports = {
     port: PORT,
     host: HOST,
     url: HOST_URL,
-    sql: {
-        server: SQL_SERVER,
-        database: SQL_DATABASE,
-        user: SQL_USER,
-        password: SQL_PASSWORD,
-        options: {
-            encrypt: sqlEncrypt,
-            enableArithAbort: true
-        },
+    pg: {
+        user: PG_USER,
+        host: PG_HOST,
+        database: PG_DATABASE,
+        password: PG_PASSWORD,
+        port: PG_PORT,
     },
 };
+

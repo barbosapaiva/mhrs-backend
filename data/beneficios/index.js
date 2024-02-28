@@ -1,18 +1,17 @@
 'use strict';
 const utils = require('../utils');
-const config = require('../../config');
-const sql = require('mssql');
+const pool = require('../../db');
 
 const getBeneficios = async () => {
     try {
-        let pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('beneficios');
-        const beneficiosList = await pool.request().query(sqlQueries.beneficioslist);
-        return beneficiosList.recordset;
+        const beneficiosList = await pool.query(sqlQueries.beneficioslist);
+        return beneficiosList.rows; 
     } catch (error) {
-        console.log(error.message);
+        console.error(error.message);
+        throw error; 
     }
-}
+};
 
 const getById = async (beneficioId) => {
     try {

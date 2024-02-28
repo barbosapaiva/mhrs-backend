@@ -136,7 +136,7 @@ const avisoemail = async (req, res, next) => {
         const transporter = nodemailer.createTransport(mailgunTransport(auth));
 
         const mailOptions = {
-            from: 'noreply.softinsaapp@gmail.com',
+            from: 'noreply.vision4you@gmail.com',
             to: participanteemail,
             subject: 'Falta menos de 30 min para a Reunião:' + data.Assunto,
             text: 'Olá ' + data.NomeParticipante + '!  Falta menos de 30 min para a Reunião:' + data.Assunto + ' relativo ao negócio:' + data.NomeProjeto + ', começa ás:' + data.HoraReuniao + ' local:' + data.LocalReuniao,

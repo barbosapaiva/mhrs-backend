@@ -2,6 +2,7 @@
 const express = require('express');
 const config = require('./config');
 const cors = require('cors');
+
 const bodyParser = require('body-parser');
 const eventRoutes = require('./routes/eventRoutes');
 const vagaRoutes = require('./routes/vagaRoutes');
@@ -74,7 +75,6 @@ app.use('/api', interacoes.routes);
 app.use('/api', reuniaoRoutes.routes);
 app.use('/api', participanteRoutes.routes);
 app.use('/api', entrevistaRoutes.routes);
-
 
 app.listen(config.port, () => {
   console.log('app listening on url http://localhost:' + config.port )
